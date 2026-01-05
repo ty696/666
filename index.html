@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>滇草源 | 天然植萃高端洗发护发品牌</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap">
+    <style>
+        :root {
+            --primary-color: #2c5530;
+            --secondary-color: #8a9a5b;
+            --accent-color: #d4a96a;
+            --light-bg: #f8f5f0;
+            --text-dark: #333333;
+            --text-light: #777777;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 头部样式 */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        .logo-icon {
+            font-size: 1.5rem;
+            margin-right: 8px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-left: 25px;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        
+        .cart-icon {
+            position: relative;
+            font-size: 1.3rem;
+            color: var(--primary-color);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--accent-color);
+            color: var(--white);
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        
+        /* 主图区域 */
+        .hero {
+            background: linear-gradient(rgba(44, 85, 48, 0.9), rgba(44, 85, 48, 0.7)), url('https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--white);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid var(--accent-color);
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--accent-color);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+        
+        /* 产品展示区域 */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+        
+        .product-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-img {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-title {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .product-description {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .product-price {
+            font-weight: 700;
+            color: var(--accent-color);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        /* 功效分类区域 */
+        .benefits {
+            background-color: var(--white);
+            padding: 60px 20px;
+            margin-bottom: 60px;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 10px;
+            background-color: var(--light-bg);
+            transition: var(--transition);
+        }
+        
+        .benefit-card:hover {
+            background-color: rgba(44, 85, 48, 0.05);
+            transform: translateY(-5px);
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .benefit-card h3 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+        }
+        
+        /* 品牌文化区域 */
+        .culture {
+            padding: 80px 20px;
+            background-color: var(--light-bg);
+            margin-bottom: 60px;
+        }
+        
+        .culture-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .culture-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .culture-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .culture-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .culture h2 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        /* 页脚样式 */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 60px 20px 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+        
+        .footer-section p, .footer-section li {
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section a {
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-section a:hover {
+            color: var(--accent-color);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.9rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                transition: var(--transition);
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 15px 0;
+            }
+            
+            .hero {
+                padding: 60px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            
+            .product-title {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.6rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .product-img {
+                height: 200px;
+            }
+        }
+        
+        /* 手作美学细节 */
+        .handcrafted-detail {
+            position: relative;
+        }
+        
+        .handcrafted-detail::before {
+            content: "❧";
+            position: absolute;
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .handmade-border {
+            border: 2px dashed rgba(212, 169, 106, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部导航 -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-leaf logo-icon"></i>
+                滇草<span>源</span>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#products">产品系列</a></li>
+                <li><a href="#benefits">产品功效</a></li>
+                <li><a href="#culture">品牌文化</a></li>
+                <li>
+                    <a href="#" class="cart-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count">3</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- 主图区域 -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>滇草源 · 源自云南的自然馈赠</h1>
+            <p>采用云南高原特有植萃精华，结合传统手作工艺，为您带来自然、健康、高效的洗发护发体验。有效去屑止痒，秀发轻盈洁净。</p>
+            <a href="#products" class="btn">探索产品</a>
+            <a href="#culture" class="btn btn-outline">品牌故事</a>
+        </div>
+    </section>
+
+    <!-- 产品系列 -->
+    <section class="container" id="products">
+        <div class="section-title handcrafted-detail">
+            <h2>精选产品系列</h2>
+        </div>
+        
+        <div class="products-grid">
+            <!-- 去屑洁净洗发水 -->
+            <div class="product-card handmade-border">
+                <div class="product-img">
+                    <!-- 这里使用您提供的去屑洗发水效果图 -->
+                    <div style="background-color: #e8f5e8; height: 100%; display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center; padding: 20px;">
+                            <h3 style="color: #2c5530; margin-bottom: 10px;">去屑洁净配方</h3>
+                            <p style="color: #8a9a5b; margin-bottom: 15px;">有效去屑止痒，秀发轻盈洁净</p>
+                            <div style="font-size: 2rem; color: #d4a96a;">滇草源</div>
+                            <div style="font-size: 1.2rem; color: #2c5530; margin-top: 5px;">DIANCAOYUAN</div>
+                            <div style="margin-top: 20px; font-weight: bold; color: #2c5530;">净含量：300ml</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">去屑净油止痒洗发乳</h3>
+                    <p class="product-description">采用云南特有植萃精华，有效去屑止痒，控油清爽，减少头屑产生，令秀发轻盈洁净。</p>
+                    <div class="product-price">¥ 128.00</div>
+                    <a href="#" class="btn" style="padding: 8px 20px; font-size: 0.9rem;">加入购物车</a>
+                </div>
+            </div>
+            
+            <!-- 植萃精华去屑控油洗发水 -->
+            <div class="product-card handmade-border">
+                <div class="product-img">
+                    <div style="background-color: #f0f5e8; height: 100%; display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center; padding: 20px;">
+                            <h3 style="color: #2c5530; margin-bottom: 10px;">植萃精华去屑控油洗发水</h3>
+                            <p style="color: #8a9a5b; margin-bottom: 15px;">洁净蓬松 · 抚平毛躁 · 香氛滋肤</p>
+                            <div style="font-size: 1.8rem; color: #d4a96a;">滇草源</div>
+                            <div style="margin-top: 20px; font-weight: bold; color: #2c5530;">750ml / 25.36FL.OZ</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">植萃精华去屑控油洗发水</h3>
+                    <p class="product-description">强韧发丝，柔顺亮泽，洁净蓬松，抚平毛躁，专为油性发质设计，持久控油蓬松。</p>
+                    <div class="product-price">¥ 168.00</div>
+                    <a href="#" class="btn" style="padding: 8px 20px; font-size: 0.9rem;">加入购物车</a>
+                </div>
+            </div>
+            
+            <!-- 植萃精华柔顺修护洗发水 -->
+            <div class="product-card handmade-border">
+                <div class="product-img">
+                    <div style="background-color: #f8f5e8; height: 100%; display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center; padding: 20px;">
+                            <h3 style="color: #2c5530; margin-bottom: 10px;">植萃精华柔顺修护洗发水</h3>
+                            <p style="color: #8a9a5b; margin-bottom: 15px;">舒爽顺滑 · 蓬松柔软 · 香氛萦绕</p>
+                            <div style="font-size: 1.8rem; color: #d4a96a;">滇草源</div>
+                            <div style="margin-top: 20px; font-weight: bold; color: #2c5530;">750ml / 25.36FL.OZ</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">植萃精华柔顺修护洗发水</h3>
+                    <p class="product-description">专为受损发质定制，深层渗透，奢享SPA级发丝养护，柔顺亮泽，蓬松顺滑不干枯。</p>
+                    <div class="product-price">¥ 158.00</div>
+                    <a href="#" class="btn" style="padding: 8px 20px; font-size: 0.9rem;">加入购物车</a>
+                </div>
+            </div>
+            
+            <!-- 植萃焕活果酸修护霜 -->
+            <div class="product-card handmade-border">
+                <div class="product-img">
+                    <div style="background-color: #e8f0e8; height: 100%; display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center; padding: 20px;">
+                            <h3 style="color: #2c5530; margin-bottom: 10px;">植萃焕活果酸修护霜</h3>
+                            <p style="color: #8a9a5b; margin-bottom: 15px;">专为严重受损发质定制</p>
+                            <div style="font-size: 1.8rem; color: #d4a96a;">滇草源</div>
+                            <div style="margin-top: 20px; font-weight: bold; color: #2c5530;">净含量：100g</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">植萃焕活果酸修护霜</h3>
+                    <p class="product-description">烫染呵护，密集润养受损发根，改善干枯，发丝闪耀水润光泽，抚顺毛躁，柔顺垂滑。</p>
+                    <div class="product-price">¥ 198.00</div>
+                    <a href="#" class="btn" style="padding: 8px 20px; font-size: 0.9rem;">加入购物车</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品功效 -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <div class="section-title handcrafted-detail">
+                <h2>产品核心功效</h2>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <h3>去屑止痒</h3>
+                    <p>有效去除头屑，缓解头皮瘙痒，保持头皮健康环境。</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h3>控油清爽</h3>
+                    <p>调节头皮油脂分泌，保持秀发持久清爽蓬松。</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3>修护滋养</h3>
+                    <p>深层修护受损发质，滋养发丝，恢复光泽弹性。</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>天然植萃</h3>
+                    <p>源自云南高原特有植物精华，温和不刺激。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 品牌文化 -->
+    <section class="culture" id="culture">
+        <div class="container">
+            <div class="section-title handcrafted-detail">
+                <h2>品牌文化与故事</h2>
+            </div>
+            
+            <div class="culture-content">
+                <div class="culture-text">
+                    <h2>源自云南，自然馈赠</h2>
+                    <p>滇草源品牌诞生于云南这片神奇的土地，这里拥有丰富的植物资源和独特的自然环境。我们深入云南高原，甄选当地特有的天然植物，结合传统手作工艺与现代科技，打造出高效、温和的洗发护发产品。</p>
+                    <p>我们的理念是"回归自然，尊重本源"。每一瓶滇草源产品都蕴含着对自然的敬畏与感恩，我们坚持采用可持续的采摘方式，保护云南丰富的生物多样性。</p>
+                    <p>滇草源的产品研发团队由植物学家、传统草药师和现代配方工程师组成，我们深入研究云南植物的特性，将这些自然智慧转化为有效的护发解决方案。</p>
+                    <p>我们相信，真正的美丽源于健康，而健康始于自然。滇草源致力于为您提供纯净、有效的天然护发产品，让您感受到来自云南大自然的滋养与呵护。</p>
+                    <a href="#products" class="btn" style="margin-top: 20px;">体验自然之力</a>
+                </div>
+                
+                <div class="culture-image">
+                    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2087&q=80" alt="云南自然风光与植物">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>滇草源</h3>
+                    <p>源自云南的自然馈赠，为您带来纯净、有效的天然植萃洗发护发体验。</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-weibo"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="#home">首页</a></li>
+                        <li><a href="#products">产品系列</a></li>
+                        <li><a href="#benefits">产品功效</a></li>
+                        <li><a href="#culture">品牌文化</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>联系我们</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 云南省昆明市五华区</p>
+                    <p><i class="fas fa-phone"></i> 400-888-9999</p>
+                    <p><i class="fas fa-envelope"></i> contact@diancaoyuan.com</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>订阅资讯</h3>
+                    <p>订阅我们的新闻通讯，获取最新产品信息和优惠活动。</p>
+                    <form style="margin-top: 15px;">
+                        <input type="email" placeholder="输入您的邮箱" style="padding: 10px; width: 100%; border-radius: 5px; border: none; margin-bottom: 10px;">
+                        <button type="submit" class="btn" style="width: 100%; padding: 10px;">订阅</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 滇草源 DIANCAOYUAN. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    // 关闭移动端菜单
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 购物车数量更新
+        const addToCartButtons = document.querySelectorAll('.product-card .btn');
+        const cartCount = document.querySelector('.cart-count');
+        
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                let currentCount = parseInt(cartCount.textContent);
+                cartCount.textContent = currentCount + 1;
+                
+                // 添加动画效果
+                cartCount.style.transform = 'scale(1.5)';
+                setTimeout(() => {
+                    cartCount.style.transform = 'scale(1)';
+                }, 300);
+                
+                // 显示添加成功提示
+                const productTitle = this.closest('.product-card').querySelector('.product-title').textContent;
+                alert(`已将"${productTitle}"添加到购物车`);
+            });
+        });
+    </script>
+</body>
+</html>
